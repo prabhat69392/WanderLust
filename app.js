@@ -129,7 +129,9 @@ app.use("/demouser", async (req,res)=>{
     console.log("successful saved ")
     res.send("success ")
   })
-
+  app.get("/",(req,res)=>{
+    res.render(index.ejs);
+  })
 
   //Handling the error raised by Post Method
   // app.use((err, req, res, next) => {
