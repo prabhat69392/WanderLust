@@ -130,7 +130,7 @@ app.use("/demouser", async (req,res)=>{
     res.send("success ")
   })
   app.get("/",(req,res)=>{
-    res.render(index.ejs);
+    res.render("./listings/index.ejs");
   })
 
   //Handling the error raised by Post Method
