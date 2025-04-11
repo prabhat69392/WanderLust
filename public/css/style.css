@@ -50,7 +50,7 @@ body{
      width: 100%;
    }
    /* cards styling */
-   .card{
+   .listing-card{
      border: none !important;
      
      margin: 0px 15px 15px 0px;
