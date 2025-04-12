@@ -77,6 +77,7 @@ app.use((req, res, next) => {
 
 //Creation of the Router 
 
+
 //send the information to the router x
 app.use("/", userRouter); 
 app.use("/", listingRouter);

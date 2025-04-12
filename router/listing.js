@@ -14,6 +14,10 @@ const multer=require("multer")
 const {storage}= require("../cloudConfig.js")
 const upload=multer({storage: storage})
  
+router.get("/", (req, res) => {
+  res.redirect("/listing");
+});
+
 router.route("/listing")
  // Index route 
   .get(WrapAsync(listingController.index))
