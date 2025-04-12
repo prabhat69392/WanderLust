@@ -129,10 +129,7 @@ app.use("/demouser", async (req,res)=>{
     console.log("successful saved ")
     res.send("success ")
   })
-  app.get("/",(req,res)=>{
-    res.render("./listings/index.ejs");
-  })
-
+  
   //Handling the error raised by Post Method
   // app.use((err, req, res, next) => {
   //     let errr= (statusCode=500, message="Something went wrong")
