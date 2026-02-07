@@ -18,7 +18,7 @@ module.exports.showListing= async (req,res,next)=>{
         })
         .populate("owner");
         if(!listing){
-          req.flash("error" ,"listing does not exist ")
+          req.flash("error" ,"Listing does not exist ")
           res.redirect("/listings ")
         }
           res.render("./listings/show.ejs",{listing})
@@ -33,7 +33,7 @@ module.exports.showListing= async (req,res,next)=>{
           newlisting.image={url,filename} 
           newlisting.owner= req.user._id; 
           await newlisting.save()
-          req.flash("success" ,"new listing created")
+          req.flash("success" ,"New Listing Created")
           res.redirect("/listing")   
         
       })
@@ -66,7 +66,7 @@ module.exports.updateListing=async (req, res) => {
       listings.image={url, filename};
       await listings.save() 
       }
-      req.flash("success","listing updated!")
+      req.flash("success","Listing Updated!")
       res.redirect(`/listings/${id}`); // Redirect to the updated listing's show page
   }
   //delete
