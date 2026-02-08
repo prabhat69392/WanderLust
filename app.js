@@ -132,15 +132,15 @@ app.use("/demouser", async (req,res)=>{
   })
   
   //Handling the error raised by Post Method
-  // app.use((err, req, res, next) => {
-  //     let errr= (statusCode=500, message="Something went wrong")
-  //     // res.status(statusCode).send(message);
-  //     res.render("error.ejs",{message})
-  // })
-  // //route access to all 
-  // app.all("*",(req,res,next)=>{
-  //   next(new ExpressError(404,"Page Not Found"));
-  // })
+  app.use((err, req, res, next) => {
+      let errr= (statusCode=500, message="Something went wrong")
+      res.status(statusCode).send(message);
+      res.render("error.ejs",{message})
+  })
+  //route access to all 
+  app.all("*",(req,res,next)=>{
+    next(new ExpressError(404,"Page Not Found"));
+  })
    // Review section 
    //Post route
    
