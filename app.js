@@ -79,7 +79,7 @@ app.use((req, res, next) => {
 
 
 //send the information to the router x
-app.use("/", userRouter); 
+app.use("/", userRouter);
 app.use("/", listingRouter);
 app.use("/", reviewRouter);
 
