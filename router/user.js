@@ -14,6 +14,7 @@ router.route("/signup")
 // 
   .post( WrapAsync(userController.addAccount));
 
+//----Login to the account 
 router.route("/login")
   // for login the account 
   .get(userController.login) 

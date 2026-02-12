@@ -22,11 +22,12 @@
   const userRouter= require("./router/user.js");
   const listingRouter = require("./router/listing.js")
   const reviewRouter=require("./router/review.js")
- 
+  
   const multer=require("multer")
-  const {storage}= require("./cloudConfig.js")
+  const {storage}= require("./cloudConfig.js") // database
   const upload=multer({storage: storage})
   
+  //-----For Authentication-------
   const passport = require("passport");
   const LocalStrategy = require("passport-local")
 
@@ -46,7 +47,8 @@
      touchAfter : 24*3600,
   })
   store.on("error",function(e){console.log(e)})
-// use for Express Session 
+
+// -----use for Express Session -------
   const sessionOption= {
      store,
      secret: process.env.SECRET,
@@ -63,15 +65,16 @@
   app.use(flash()) 
   app.use(passport.initialize())
   app.use(passport.session()) 
+  //------Authenticate process--------
   passport.use(new LocalStrategy(user.authenticate()))
-
   passport.serializeUser(user.serializeUser())
   passport.deserializeUser(user.deserializeUser())
- // this is the middleware
+
+ // this is middleware
 app.use((req, res, next) => {
-    res.locals.success = req.flash("success"); // ✅ Pass success messages
-    res.locals.error = req.flash("error");     // ✅ Pass error messages
-    res.locals.currUser = req.user;            // ✅ Pass current user info
+    res.locals.success = req.flash("success"); //  Pass success messages
+    res.locals.error = req.flash("error");     //  Pass error messages
+    res.locals.currUser = req.user;            //  Pass current user info
     next();
 });
 

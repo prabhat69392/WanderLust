@@ -23,7 +23,7 @@
          res.redirect("/signup.ejs");
     }
     })
-
+  
 // login into Account
 module.exports.login=(req,res)=>{
      res.render("users/login.ejs")
